@@ -17,7 +17,7 @@ from keras.utils import np_utils
 from keras.objectives import categorical_crossentropy
 from wxpy import *
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 import multiprocessing as mp
 batch_size = 10
 low_dim = 2
@@ -183,6 +183,7 @@ ret = shuchu("aa",ll,OCSvm,model)
 print(ret[0])
 bot = Bot(console_qr=False, cache_path=False)
 bot.file_helper.send('hello,world')
+#search里面加用户
 found = bot.friends().search('冉开怀')
 @bot.register(found)
 def forward_message(msg):
